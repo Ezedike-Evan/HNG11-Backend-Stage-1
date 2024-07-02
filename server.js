@@ -8,6 +8,9 @@ app.set('trust proxy', true)
 
 const port = process.env.PORT || 3000;
 
+app.get('/' , (req,res)=>{
+    res.send('Welcome')
+})
 app.get('/api/hello', async(req, res) => {
     const client_ip = req.ip
     const response = await axios.get(process.env.API_URL)
@@ -24,6 +27,4 @@ app.get('/api/hello', async(req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+app.listen(port)
